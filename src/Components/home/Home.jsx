@@ -6,12 +6,10 @@ import BaiTapThucHanhLayout from "../../Ex_ReactJS_buoi1/BaiTapThucHanhLayout";
 export default class home extends Component {
   render() {
     return (
-      <div>
-        <Routes>
-            <Route path="/" element={<DDA />} />
-            <Route path="baitap1" element={<BaiTapThucHanhLayout/>} />
-        </Routes>
-      </div>
+      <Routes>
+          <Route path="/" element={<DDA />} />
+          <Route path="baitap1" element={<BaiTapThucHanhLayout />} />
+      </Routes>
     );
   }
 }
