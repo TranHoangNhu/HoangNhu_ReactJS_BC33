@@ -18,7 +18,7 @@ export default class DDA extends Component {
               BÀI TẬP 1 - layout BootStrap
             </Link>
             <Link className="button-78" role="button" to="baitap2">
-              BÀI TẬP 2
+              BÀI TẬP 2 - GlassVirtual
             </Link>
             <Link className="button-78" role="button" to="baitap3">
               BÀI TẬP 3
