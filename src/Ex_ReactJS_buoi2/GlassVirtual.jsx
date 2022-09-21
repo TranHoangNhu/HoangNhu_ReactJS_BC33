@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import model from "../assets/img/glassesImage/model.jpg";
 import "../assets/Sass/main.scss";
+import GlassItems from "./GlassItems";
 
 const dataGlasses = [
   {
@@ -90,24 +91,14 @@ export default class GlassVirtual extends Component {
       return (
         <div
           className="col-4 col-lg-2 text-white text-center py-3 align-self-center"
-          key={index}
-        >
-          <img
-            className="w-100"
-            src={item.url}
-            alt={"..."}
-            onClick={() => {
-              this.handlerGlassVirtual(item);
-            }}
-          />
+          key={index}>
+          <GlassItems item={item} handlerGlassVirtual={this.handlerGlassVirtual}/>
         </div>
       );
     });
   };
 
   render() {
-    // let { id,price,name,desc } = this.state.VirtualInfo; 
-
     return (
       <div className="GlassVirtual">
         <h1 className="text-center p-2">GlassVirtual</h1>
@@ -123,7 +114,7 @@ export default class GlassVirtual extends Component {
               </div>
               <div className="info text-white px-3">
                 <h3 className="py-2 text-center fw-bold">
-                {this.state.VirtualInfo.name}
+                  Bamboo wood - Armani Exchange (Brown)
                 </h3>
                 <a href="#">{this.state.VirtualInfo.price}$</a>
                 <span>Stocking</span>
