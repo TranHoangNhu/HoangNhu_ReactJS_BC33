@@ -8,7 +8,7 @@ export default class ProductItem extends Component {
         <img
           src={prod.hinhAnh}
           height={350}
-          className="w-100"
+          className="w-100 p-3"
           style={{ objectFit: "contain" }}
         />
         <div className="card-body">

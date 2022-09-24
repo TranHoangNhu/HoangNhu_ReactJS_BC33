@@ -13,7 +13,7 @@ const dataPhone = [
     rom: "64 GB",
     giaBan: 5700000,
     hinhAnh: "/img/phoneProducts/vsphone.jpg",
-    soLuong: 3,
+    soLuong: 0,
   },
   {
     maSP: 2,
