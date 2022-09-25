@@ -10,6 +10,7 @@ const dataGlasses = [
     name: "GUCCI G8850U",
     url: "/img/glassesImage/g1.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "White",
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const dataGlasses = [
     name: "GUCCI G8759H",
     url: "/img/glassesImage/g2.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "camo",
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const dataGlasses = [
     name: "DIOR D6700HQ",
     url: "/img/glassesImage/g3.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "grey",
   },
   {
     id: 4,
@@ -31,6 +34,7 @@ const dataGlasses = [
     name: "DIOR D6005U",
     url: "/img/glassesImage/g4.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "Yellow",
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const dataGlasses = [
     name: "PRADA P8750",
     url: "/img/glassesImage/g5.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "margenta",
   },
   {
     id: 6,
@@ -45,6 +50,7 @@ const dataGlasses = [
     name: "PRADA P9700",
     url: "/img/glassesImage/g6.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "Orange",
   },
   {
     id: 7,
@@ -52,6 +58,7 @@ const dataGlasses = [
     name: "FENDI F8750",
     url: "/img/glassesImage/g7.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "Blue",
   },
   {
     id: 8,
@@ -59,6 +66,7 @@ const dataGlasses = [
     name: "FENDI F8500",
     url: "/img/glassesImage/g8.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "Black",
   },
   {
     id: 9,
@@ -66,6 +74,7 @@ const dataGlasses = [
     name: "FENDI F4300",
     url: "/img/glassesImage/g9.jpg",
     desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+    color: "Pink",
   },
 ];
 
@@ -76,7 +85,8 @@ export default class GlassVirtual extends Component {
       id: 1,
       price: 30,
       name: "GUCCI G8850U",
-      desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
+      desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+      color: "White",
     },
   };
   handlerGlassVirtual = (idClick) => {
@@ -114,7 +124,7 @@ export default class GlassVirtual extends Component {
               </div>
               <div className="info text-white px-3">
                 <h3 className="py-2 text-center fw-bold">
-                  Bamboo wood - Armani Exchange (Brown)
+                  {this.state.VirtualInfo.name} {this.state.VirtualInfo.color}
                 </h3>
                 <a href="#">{this.state.VirtualInfo.price}$</a>
                 <span>Stocking</span>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class GlassItems extends Component {
   render() {
-    let {item, handlerGlassVirtual } = this.props;
+    let { item, handlerGlassVirtual } = this.props;
     return (
       <>
         <img
