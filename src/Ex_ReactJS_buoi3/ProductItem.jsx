@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../assets/Sass/main.scss';
 
 export default class ProductItem extends Component {
   render() {

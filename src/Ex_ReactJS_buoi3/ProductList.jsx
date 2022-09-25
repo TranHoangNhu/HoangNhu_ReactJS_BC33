@@ -35,7 +35,7 @@ const dataPhone = [
     heDieuHanh: "iOS 16",
     cameraSau: "Chính 48 MP, Siêu Rộng 12 MP, tele 12 MP",
     cameraTruoc: "12 MP",
-    ram: "... GB",    
+    ram: "... GB",
     rom: "128 GB",
     giaBan: 30990000,
     hinhAnh: "/img/phoneProducts/applephone.jpg",
@@ -48,7 +48,7 @@ const dataPhone = [
     heDieuHanh: "Android 12, One UI 4.1",
     cameraSau: "108 MP, f/1.8 góc rộng",
     cameraTruoc: "40 MP, f/2.2",
-    ram: "12 GB",    
+    ram: "12 GB",
     rom: "512 GB",
     giaBan: 29590000,
     hinhAnh: "/img/phoneProducts/galaxys22ultra.jpg",
@@ -61,7 +61,7 @@ const dataPhone = [
     heDieuHanh: "Android 12",
     cameraSau: "góc rộng: 50 MP, góc siêu rộng: 13 MP & góc sâu: 2 MP",
     cameraTruoc: "16 MP",
-    ram: "8 GB",    
+    ram: "8 GB",
     rom: "128 GB",
     giaBan: 17240000,
     hinhAnh: "/img/phoneProducts/lenovo_legion.jpg",
@@ -74,15 +74,13 @@ const dataPhone = [
     heDieuHanh: "Android 12",
     cameraSau: "Chính góc rộng: 50 MP, góc siêu rộng: 13 MP & macro: 5 MP",
     cameraTruoc: "12 MP",
-    ram: "16 GB",    
+    ram: "16 GB",
     rom: "512 GB",
     giaBan: 24990000,
     hinhAnh: "/img/phoneProducts/asus-rog-phone-6.png",
     soLuong: 4,
   },
 ];
-
-
 
 // let saveLocalStorage = () => {
 //   localStorage.setItem("cartPhone", JSON.stringify(cartStore));
@@ -109,8 +107,12 @@ export default class ProductList extends Component {
     const { addToCart } = this.props;
     return dataPhone.map((prod, index) => {
       return (
-        <div className="col-12 col-md-4 pb-5" key={index}>
-          <ProductItem addToCart={addToCart} prod={prod} xemChiTiet={this.xemChiTiet} />
+        <div className="col-12 col-md-4 p-4" key={index}>
+          <ProductItem
+            addToCart={addToCart}
+            prod={prod}
+            xemChiTiet={this.xemChiTiet}
+          />
         </div>
       );
     });
@@ -134,23 +136,23 @@ export default class ProductList extends Component {
       heDieuHanh,
       cameraSau,
       cameraTruoc,
-      soLuong
+      soLuong,
     } = this.state.spChiTiet;
-    
+
     // let tongSoLuong = this.state.cartStore.reduce((total,prodInCart)=>{
     //     return total += prodInCart.soLuong;
     //   },0)
     return (
-      <>
+      <div className="cartCount">
         <div className="float-end mt-3 p-3">
           <button
             type="button"
-            className="btn mx-3 btn-primary"
+            className="btn mx-3"
             data-bs-toggle="modal"
             data-bs-target="#modalId"
           >
-            <i className="fs-1 p-2 fa-solid fa-cart-arrow-down"></i>
-            {/* <span>( {tongSoLuong} )</span> */}
+            <i className="fs-1 p-2 fa-solid fa-cart-arrow-down text-primary"></i>
+            <span className="cd-cart-count bg-success text-white fw-bold fs-5">4</span>
           </button>
         </div>
         <div className="container">
@@ -198,10 +200,12 @@ export default class ProductList extends Component {
                       <td>{rom}</td>
                     </tr>
                     <tr>
-                       <th>Trạng thái</th>
-                       {
-                        (soLuong>0) ? <td className="fw-bold fs-4 text-success">Còn Hàng</td> : <td className="fw-bold fs-4 text-danger">Hết Hàng</td>
-                       }
+                      <th>Trạng thái</th>
+                      {soLuong > 0 ? (
+                        <td className="fw-bold fs-4 text-success">Còn Hàng</td>
+                      ) : (
+                        <td className="fw-bold fs-4 text-danger">Hết Hàng</td>
+                      )}
                     </tr>
                   </thead>
                 </table>
@@ -209,7 +213,7 @@ export default class ProductList extends Component {
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

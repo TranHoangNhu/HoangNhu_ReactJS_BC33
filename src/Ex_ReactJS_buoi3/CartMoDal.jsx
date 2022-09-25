@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-export default class Cart extends Component {
+export default class CartMoDal extends Component {
   render() {
-    const { cartStore, delProdInCart } = this.props;
+    const { cartStore, delProdInCart, cartUpdate, stepUpAndDown } = this.props;
+
     return (
       <>
         <div
@@ -35,9 +36,11 @@ export default class Cart extends Component {
                 />
               </div>
               <div className="modal-body bg-dark px-5">
-                {cartStore === null? (
-                  <div className="row d-flex justify-content-between align-items-center">
-                    <h1>Trong giỏ hàng chưa có sản phẩm nào cả!!!</h1>
+                {cartUpdate === undefined ? (
+                  <div className="row mt-5 pt-5">
+                    <h1 className="text-center fs-1 mt-5 pt-5 text-warning">
+                      Trong giỏ hàng chưa có sản phẩm nào cả !!!
+                    </h1>
                   </div>
                 ) : (
                   cartStore.map((prod) => {
@@ -53,7 +56,9 @@ export default class Cart extends Component {
                               />
                             </div>
                             <div className="col-md-3 col-lg-3 col-xl-3">
-                              <p className="lead fw-bold mb-2 fs-4 text-center">{prod.tenSP}</p>
+                              <p className="lead fw-bold mb-2 fs-4 text-center">
+                                {prod.tenSP}
+                              </p>
                               <p className="text-center">
                                 <span className="text-muted">Ram: </span>
                                 <u>{prod.ram}</u>{" "}
@@ -61,33 +66,24 @@ export default class Cart extends Component {
                                 <u>{prod.rom}</u>
                               </p>
                             </div>
-                            <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
+                            <div className="col-md-3 col-lg-3 col-xl-2 d-flex justify-content-center">
                               <button
                                 className="btn btn-link px-2"
-                                onClick={() => {
-                                  this.parentNode
-                                    .querySelector("input[type=number]")
-                                    .stepDown();
-                                }}
+                                onClick={() => stepUpAndDown(prod.maSP, false)}
                               >
-                                <i className="fas fa-minus" />
+                                <i className="fs-4 fas fa-minus" />
                               </button>
-                              <input
-                                min={0}
-                                name="quantity"
-                                value={prod.soLuong}
-                                className="form-control form-control-sm fs-4 text-center"
-                                step={1}
-                              />
+                              <span
+                                className="fs-3 text-center px-4"
+                                style={{ lineHeight: "130%" }}
+                              >
+                                {prod.soLuong}
+                              </span>
                               <button
                                 className="btn btn-link px-2"
-                                onClick={() => {
-                                  this.parentNode
-                                    .querySelector("input[type=number]")
-                                    .stepUp();
-                                }}
+                                onClick={() => stepUpAndDown(prod.maSP, true)}
                               >
-                                <i className="fas fa-plus" />
+                                <i className="fs-4 fas fa-plus" />
                               </button>
                             </div>
                             <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
