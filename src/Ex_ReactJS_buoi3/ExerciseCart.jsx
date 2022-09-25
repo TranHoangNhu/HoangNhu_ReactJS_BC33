@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CartMoDal from "./CartMoDal";
 import ProductList from "./ProductList";
+import '../assets/Sass/main.scss';
 
 export default class ExerciseCart extends Component {
   constructor(props) {
@@ -64,6 +65,10 @@ export default class ExerciseCart extends Component {
   };
 
   render() {
+    let tongSoLuong = this.state.cartStore.reduce((total,prodInCart)=>{
+      return total += prodInCart.soLuong;
+    },0)
+
     return (
       <>
         <CartMoDal
@@ -73,6 +78,17 @@ export default class ExerciseCart extends Component {
           cartUpdate={this.state.cartUpdate}
           stepUpAndDown={this.stepUpAndDown}
         />
+        <div className="cart-count mt-3 p-3">
+          <button
+            type="button"
+            className="btn mx-3"
+            data-bs-toggle="modal"
+            data-bs-target="#modalId"
+          >
+            <i className="fs-1 p-2 fa-solid fa-cart-arrow-down text-primary"></i>
+            <span className="cd-cart-count bg-success text-white fw-bold fs-5">{tongSoLuong}</span>
+          </button>
+        </div>
         <ProductList addToCart={this.addToCart}>
           {this.props.children}
         </ProductList>

@@ -138,23 +138,9 @@ export default class ProductList extends Component {
       cameraTruoc,
       soLuong,
     } = this.state.spChiTiet;
-
-    // let tongSoLuong = this.state.cartStore.reduce((total,prodInCart)=>{
-    //     return total += prodInCart.soLuong;
-    //   },0)
+    
     return (
-      <div className="cartCount">
-        <div className="float-end mt-3 p-3">
-          <button
-            type="button"
-            className="btn mx-3"
-            data-bs-toggle="modal"
-            data-bs-target="#modalId"
-          >
-            <i className="fs-1 p-2 fa-solid fa-cart-arrow-down text-primary"></i>
-            <span className="cd-cart-count bg-success text-white fw-bold fs-5">4</span>
-          </button>
-        </div>
+      <>
         <div className="container">
           <h3 className="text-center p-4 bg-light">Danh sách sản phẩm</h3>
           <div className="row">{this.renderProduct()}</div>
@@ -213,7 +199,7 @@ export default class ProductList extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

@@ -136,12 +136,15 @@
     }
 }
 
-.cartCount{
-   .cd-cart-count{
-    position: relative;
-    top: -30px;
-    right: 20px;
-    padding: 5px 9px;
-    border-radius: 50px;
-   }
+.cart-count{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    .cd-cart-count {
+        position: relative;
+        top: -30px;
+        right: 20px;
+        padding: 5px 9px;
+        border-radius: 50px;
+    }
 }

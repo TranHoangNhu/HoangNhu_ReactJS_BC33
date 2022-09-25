@@ -116,15 +116,16 @@ export default class CartMoDal extends Component {
                 )}
               </div>
               <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Save
+                <h5 className="mx-5 py-3 fw-bold text-success fs-2">Tổng Tiền Hàng:{' '}
+                  {this.props.cartStore.reduce((tongTien,prodInCart)=>{
+                    return tongTien += prodInCart.soLuong * prodInCart.giaBan
+                  },0).toLocaleString("vi", {
+                    style: "currency",
+                    currency: "VND",
+                  })}
+                </h5>
+                <button type="button" className="btn btn-primary" data-bs-dismiss="modal">
+                  Tiếp tục mua sắm
                 </button>
               </div>
             </div>
