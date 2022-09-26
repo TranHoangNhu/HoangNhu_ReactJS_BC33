@@ -2,81 +2,8 @@ import React, { Component } from "react";
 import model from "../assets/img/glassesImage/model.jpg";
 import "../assets/Sass/main.scss";
 import GlassItems from "./GlassItems";
+import data from '../data/glassData.json';
 
-const dataGlasses = [
-  {
-    id: 1,
-    price: 30,
-    name: "GUCCI G8850U",
-    url: "/img/glassesImage/g1.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "White",
-  },
-  {
-    id: 2,
-    price: 50,
-    name: "GUCCI G8759H",
-    url: "/img/glassesImage/g2.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "camo",
-  },
-  {
-    id: 3,
-    price: 30,
-    name: "DIOR D6700HQ",
-    url: "/img/glassesImage/g3.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "grey",
-  },
-  {
-    id: 4,
-    price: 70,
-    name: "DIOR D6005U",
-    url: "/img/glassesImage/g4.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "Yellow",
-  },
-  {
-    id: 5,
-    price: 40,
-    name: "PRADA P8750",
-    url: "/img/glassesImage/g5.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "margenta",
-  },
-  {
-    id: 6,
-    price: 60,
-    name: "PRADA P9700",
-    url: "/img/glassesImage/g6.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "Orange",
-  },
-  {
-    id: 7,
-    price: 80,
-    name: "FENDI F8750",
-    url: "/img/glassesImage/g7.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "Blue",
-  },
-  {
-    id: 8,
-    price: 100,
-    name: "FENDI F8500",
-    url: "/img/glassesImage/g8.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "Black",
-  },
-  {
-    id: 9,
-    price: 60,
-    name: "FENDI F4300",
-    url: "/img/glassesImage/g9.jpg",
-    desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
-    color: "Pink",
-  },
-];
 
 export default class GlassVirtual extends Component {
   state = {
@@ -97,7 +24,7 @@ export default class GlassVirtual extends Component {
   };
 
   renderGlass = () => {
-    return dataGlasses.map((item, index) => {
+    return data.map((item, index) => {
       return (
         <div
           className="col-4 col-lg-2 text-white text-center py-3 align-self-center"
