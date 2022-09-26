@@ -10,12 +10,24 @@ export default class ProductItem extends Component {
           height={350}
           className="w-100 p-3"
           style={{ objectFit: "contain" }}
+          alt={"..."}
         />
         <div className="card-body">
           <p className="fs-4 fw-bold">{prod.tenSP}</p>
-          <p>Giá bán: <span className="text-danger fs-5 fw-normal px-2">{prod.giaBan.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span></p>
+          <p>
+            Giá bán:{" "}
+            <span className="text-danger fs-5 fw-normal px-2">
+              {prod.giaBan.toLocaleString("vi", {
+                style: "currency",
+                currency: "VND",
+              })}
+            </span>
+          </p>
           <button
             className="btn btn-success"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#modalInfo"
             onClick={() => {
               // this.xemChiTiet(prod)
               //callback function

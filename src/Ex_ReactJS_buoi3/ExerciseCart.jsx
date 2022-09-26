@@ -89,7 +89,7 @@ export default class ExerciseCart extends Component {
             <span className="cd-cart-count bg-success text-white fw-bold fs-5">{tongSoLuong}</span>
           </button>
         </div>
-        <ProductList addToCart={this.addToCart}>
+        <ProductList addToCart={this.addToCart} cartUpdate={this.state.cartUpdate}>
           {this.props.children}
         </ProductList>
       </>

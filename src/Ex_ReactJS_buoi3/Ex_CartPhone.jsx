@@ -1,17 +1,12 @@
 import React, { Component } from "react";
+import CartMoDal from "./CartMoDal";
 import ExerciseCart from "./ExerciseCart";
 
 export default class Ex_CartPhone extends Component {
   render() {
     return (
-      //   <ExerciseCart>
-      //     <Cart cartData={cartData} />
-      //     <ProductList>
-      //       <ProductItem item={product} addToCart={this.props.addToCart} />
-      //     </ProductList>
-      //   </ExerciseCart>
       <ExerciseCart>
-        {this.props.cart}
+        <CartMoDal  />
         {this.props.children}
       </ExerciseCart>
     );
