@@ -23,6 +23,9 @@ export default class DDA extends Component {
             <Link className="button-78" role="button" to="baitap3">
               BÀI TẬP 3 - CartPhone
             </Link>
+            <Link className="button-78" role="button" to="baitap4">
+              BÀI TẬP 4 - FormStudent
+            </Link>
           </div>
         </div>
       </div>

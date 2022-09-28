@@ -4,6 +4,7 @@ import DDA from "./DefaultSection";
 import BaiTapThucHanhLayout from "../../Ex_ReactJS_buoi1/BaiTapThucHanhLayout";
 import GlassVirtual from "../../Ex_ReactJS_buoi2/GlassVirtual";
 import ExerciseCart from "../../Ex_ReactJS_buoi3/ExerciseCart";
+import ExFormStudent from "../../Ex_ReactJS_buoi4/ExFormStudent";
 
 export default class home extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class home extends Component {
           <Route path="baitap1" element={<BaiTapThucHanhLayout />} />
           <Route path="baitap2" element={<GlassVirtual />} />
           <Route path="baitap3" element={<ExerciseCart />} />
+          <Route path="baitap4" element={<ExFormStudent/>} />
       </Routes>
     );
   }
