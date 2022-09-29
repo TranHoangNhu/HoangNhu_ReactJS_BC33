@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import TableStudent from "./TableStudent";
+import { connect } from "react-redux";
 
-export default class FormStudent extends Component {
+class FormStudent extends Component {
   state = {
     values: {
       id: "",
@@ -9,7 +9,6 @@ export default class FormStudent extends Component {
       price: "",
       image: "",
       description: "",
-      productType: "phone",
     },
     errors: {
       id: "",
@@ -19,31 +18,14 @@ export default class FormStudent extends Component {
       description: "",
     },
     isSubmit: true,
-    arrProduct: [
-      {
-        id: 1,
-        name: "product 1",
-        price: 1000,
-        image: "https://picsum.photos/id/1/50/50",
-        description: "desc prod 1",
-        productType: "phone",
-      },
-      {
-        id: 2,
-        name: "product 2",
-        price: 1000,
-        image: "https://picsum.photos/id/2/50/50",
-        description: "desc prod 2",
-        productType: "laptop",
-      },
-    ],
+    arrStudent: [],
   };
 
   handleChangeInput = (e) => {
     let { value, id } = e.target; //id:price, value: '1000'
     let newValues = { ...this.state.values };
     newValues[id] = value;
-    let newErrors = { ...this.state.errors };
+    let newErrors = { ...this.state };
     //Xử lý lỗi:
     let messError = "";
     if (value.trim() === "") {
@@ -85,6 +67,7 @@ export default class FormStudent extends Component {
       }
     );
   };
+
   handleSubmit = (e) => {
     e.preventDefault(); //Hàm này giúp chặn sự kiện reload của browser khi form submit
     console.log("submit", this.state);
@@ -100,59 +83,58 @@ export default class FormStudent extends Component {
       }
     }
     //Thêm dữ liệu vào arrProduct
-    let newProduct = { ...this.state.values };
-    this.state.arrProduct.push(newProduct);
+    // let newProduct = { ...this.state.values };
+    // this.state.arrProduct.push(newProduct);
     //Cập nhật lại state
-    this.setState({
-      arrProduct: this.state.arrProduct,
-    });
+    // this.setState({
+    //   arrProduct: this.state.arrProduct,
+    // });
+    this.props.addStudent(this.state);
   };
 
-  editProduct = (prodEdit) => {
-    console.log(prodEdit);
-    this.setState({
-      values: prodEdit,
-    });
-  };
+  // editProduct = (prodEdit) => {
+  //   console.log(prodEdit);
+  //   this.setState({
+  //     values: prodEdit,
+  //   });
+  // };
 
-  deleteProduct = (idClick) => {
-    console.log(idClick);
-    // this.state.arrProduct = this.state.arrProduct.filter(prod => prod.id !== idClick);
-    let indexDel = this.state.arrProduct.findIndex(
-      (prod) => prod.id === idClick
-    );
+  // deleteProduct = (idClick) => {
+  //   console.log(idClick);
+  //   // this.state.arrProduct = this.state.arrProduct.filter(prod => prod.id !== idClick);
+  //   let indexDel = this.state.arrProduct.findIndex(
+  //     (prod) => prod.id === idClick
+  //   );
 
-    this.state.arrProduct.splice(indexDel, 1);
+  //   this.state.arrProduct.splice(indexDel, 1);
 
-    //setState để render lại giao diện
-    this.setState({
-      arrProduct: this.state.arrProduct,
-    });
-  };
+  //   //setState để render lại giao diện
+  //   this.setState({
+  //     arrStudentz: this.state.arrStudentz,
+  //   });
+  // };
 
-  handleUpdate = () => {
-    let { values, arrProduct } = this.state;
-    //Dữ liệu đang edit: this.state.values
-    //Dữ liệu cần thay đổi: this.state.arrProduct
-    let prodUpdate = arrProduct.find((prod) => prod.id === values.id);
+  // handleUpdate = () => {
+  //   let { values, arrProduct } = this.state;
+  //   //Dữ liệu đang edit: this.state.values
+  //   //Dữ liệu cần thay đổi: this.state.arrProduct
+  //   let prodUpdate = arrProduct.find((prod) => prod.id === values.id);
 
-    // prodUpdate.name = values.name;
-    // prodUpdate.price = values.price;
-    // prodUpdate.description = values.description;
-    // prodUpdate.image = values.image;
-    // prodUpdate.productType = values.productType;
-    for (let key in prodUpdate) {
-      prodUpdate[key] = values[key];
-    }
+  //   // prodUpdate.name = values.name;
+  //   // prodUpdate.price = values.price;
+  //   // prodUpdate.description = values.description;
+  //   // prodUpdate.image = values.image;
+  //   // prodUpdate.productType = values.productType;
+  //   for (let key in prodUpdate) {
+  //     prodUpdate[key] = values[key];
+  //   }
 
-    this.setState({
-      arrProduct: arrProduct,
-    });
-  };
+  //   this.setState({
+  //     arrStudent: arrStudent,
+  //   });
+  // };
 
   render() {
-    let { id, name, price, image, description, productType } =
-      this.state.values;
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
@@ -169,8 +151,8 @@ export default class FormStudent extends Component {
                       className="form-control"
                       id="id"
                       name="id"
-                      onInput={this.handleChangeInput}
-                      value={id}
+                      onChange={this.handleChangeInput}
+                      value={this.state.id}
                     />
                     <p className="text text-danger">{this.state.errors.id}</p>
                   </div>
@@ -180,8 +162,8 @@ export default class FormStudent extends Component {
                       className="form-control"
                       id="name"
                       name="name"
-                      onInput={this.handleChangeInput}
-                      value={name}
+                      onChange={this.handleChangeInput}
+                      value={this.state.name}
                     />
                     <p className="text text-danger">{this.state.errors.name}</p>
                   </div>
@@ -192,8 +174,8 @@ export default class FormStudent extends Component {
                       className="form-control"
                       id="price"
                       name="price"
-                      value={price}
-                      onInput={this.handleChangeInput}
+                      value={this.state.price}
+                      onChange={this.handleChangeInput}
                     />
                     <p className="text text-danger">
                       {this.state.errors.price}
@@ -207,8 +189,8 @@ export default class FormStudent extends Component {
                       className="form-control"
                       id="image"
                       name="image"
-                      onInput={this.handleChangeInput}
-                      value={image}
+                      onChange={this.handleChangeInput}
+                      value={this.state.image}
                     />
                     <p className="text text-danger">
                       {this.state.errors.image}
@@ -219,8 +201,8 @@ export default class FormStudent extends Component {
                     <select
                       id="productType"
                       className="form-control"
-                      onInput={this.handleChangeInput}
-                      value={productType}
+                      onChange={this.handleChangeInput}
+                      value={this.state.productType}
                     >
                       <option value={"Trung cấp"}>Trung cấp</option>
                       <option value={"Chính quy"}>Chính quy</option>
@@ -230,11 +212,11 @@ export default class FormStudent extends Component {
                   <div className="form-group">
                     <p className="pt-3">Địa chỉ thường trú</p>
                     <textarea
-                      onInput={this.handleChangeInput}
+                      onChange={this.handleChangeInput}
                       className="form-control"
                       id="description"
                       name="description"
-                      value={description}
+                      value={this.state.description}
                     />
                     <p className="text text-danger">
                       {this.state.errors.description}
@@ -264,12 +246,21 @@ export default class FormStudent extends Component {
             </div>
           </div>
         </form>
-        <TableStudent
-          arrProduct={this.state.arrProduct}
-          delProduct={this.deleteProduct}
-          editProduct={this.editProduct}
-        />
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addStudent: (student) => {
+      const action = {
+        type: "ADD_STUDENT",
+        student,
+      };
+      dispatch(action);
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(FormStudent);
