@@ -13,7 +13,7 @@ export default class DDA extends Component {
             <div className="react__spoke react__spoke--2" />
             <div className="react__spoke--3" />
           </div>
-          <div className="container justify-content-between pb-5">
+          <div className="container justify-content-between">
             <Link className="button-78" role="button" to="baitap1">
               BÀI TẬP 1 - layout BootStrap
             </Link>
@@ -25,6 +25,11 @@ export default class DDA extends Component {
             </Link>
             <Link className="button-78" role="button" to="baitap4">
               BÀI TẬP 4 - FormStudent
+            </Link>
+          </div>
+          <div className="container">
+            <Link className="button-78" role="button" to="todolist">
+              TodoList ReactHook
             </Link>
           </div>
         </div>

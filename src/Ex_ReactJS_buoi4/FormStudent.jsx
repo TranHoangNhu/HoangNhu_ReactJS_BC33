@@ -18,7 +18,6 @@ class FormStudent extends Component {
       description: "",
     },
     isSubmit: true,
-    arrStudent: [],
   };
 
   handleChangeInput = (e) => {
