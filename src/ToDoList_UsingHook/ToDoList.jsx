@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ToDoList() {
+export default function ToDoList({ Truyền tham số vào đây }) {
   return (
     <>
       {/* <ul className="todo" id="todo">

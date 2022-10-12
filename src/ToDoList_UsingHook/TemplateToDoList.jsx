@@ -1,22 +1,55 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../assets/Sass/main.scss";
 import CompleteList from "./CompleteList";
 // import ToDoList from "./ToDoList";
 
 export default function TemplateToDoList() {
   const [job, setJob] = useState("");
-  const [jobs, setJobs] = useState(
-    [] ??
-      (() => {
-        var storageJobs = JSON.parse(localStorage.getItem("jobs"));
-        return storageJobs;
-      })
-  );
-  //   const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState(() => {
+    var storageJobs = JSON.parse(localStorage.getItem("jobs")) || [];
+    return storageJobs;
+  });
+  const [completeJobs, setCompleteJobs] = useState(() => {
+    var storageCompleteJobs =
+      JSON.parse(localStorage.getItem("completeJobs")) || [];
+    return storageCompleteJobs;
+  });
+
+  const delJob = (idClick) => {
+    const newJobs = jobs.filter((job) => job.id !== idClick);
+    setJobs(newJobs);
+    const jsonJobs = JSON.stringify(newJobs);
+    localStorage.setItem("jobs", jsonJobs);
+  };
+
+  const delCompleteJob = (idClick) => {
+    const newJobs = jobs.filter((job) => job.id !== idClick);
+    setJobs(newJobs);
+    const jsonJobs = JSON.stringify(newJobs);
+    localStorage.setItem("completeJobs", jsonJobs);
+  };
+
+  const handleComplete = (idClick) => {
+    const newComplete = completeJobs.find((job) => job.id === idClick);
+    console.log(newComplete);
+    setCompleteJobs((prev) => {
+      const newJobs = [...prev, newComplete];
+      const jsonJobs = JSON.stringify(newJobs);
+      localStorage.setItem("completeJobs", jsonJobs);
+      return newJobs;
+    });
+  };
+
   const handleSubmit = () => {
     setJobs((prev) => {
-      const newJobs = [...prev, job];
+      const idJob = String(Date.now());
+      const newJobs = [
+        ...prev,
+        {
+          jobs: job,
+          id: idJob,
+        },
+      ];
       const jsonJobs = JSON.stringify(newJobs);
       localStorage.setItem("jobs", jsonJobs);
       return newJobs;
@@ -69,13 +102,16 @@ export default function TemplateToDoList() {
             <div className="card__todo">
               {/* Uncompleted tasks */}
               <ul className="todo" id="todo">
-                {jobs.map((job, index) => {
+                {jobs.map((job) => {
                   return (
-                    <li key={index}>
-                      {job}
+                    <li key={job.id}>
+                      {job.jobs}
                       <span className="buttons">
                         <button>
-                          <i className="far fa-trash-alt" />
+                          <i
+                            className="far fa-trash-alt"
+                            onClick={() => delJob(job.id)}
+                          />
                         </button>
                         <button>
                           <i className="far fa-check-circle" />
@@ -86,7 +122,29 @@ export default function TemplateToDoList() {
                 })}
               </ul>
               {/* Completed tasks */}
-              {/* <CompleteList /> */}
+              <ul className="todo" id="completed">
+                {completeJobs.map((job) => {
+                  return (
+                    <li key={job.id}>
+                      {job.jobs}
+                      <span className="buttons">
+                        <button>
+                          <i
+                            className="far fa-trash-alt"
+                            onClick={() => delCompleteJob(job.id)}
+                          />
+                        </button>
+                        <button className="complete">
+                          <i
+                            className="far fa-check-circle"
+                            onClick={() => handleComplete(job.id)}
+                          />
+                        </button>
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         </div>
