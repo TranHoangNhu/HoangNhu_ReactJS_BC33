@@ -1,43 +1,29 @@
 import React from "react";
 
-export default function ToDoList({ Truyền tham số vào đây }) {
+export default function ToDoList({ jobs, delJob, handleComplete }) {
   return (
     <>
-      {/* <ul className="todo" id="todo">
-        <li>
-          Task 1 chưa xong
-          <span className="buttons">
-            <button>
-              <i className="far fa-trash-alt" />
-            </button>
-            <button>
-              <i className="far fa-check-circle" />
-            </button>
-          </span>
-        </li>
-        <li>
-          Task 2 chưa xong
-          <span className="buttons">
-            <button>
-              <i className="far fa-trash-alt" />
-            </button>
-            <button className="completed">
-              <i className="far fa-check-circle" />
-            </button>
-          </span>
-        </li>
-        <li>
-          Task 3 chưa xong
-          <span className="buttons">
-            <button>
-              <i className="far fa-trash-alt" />
-            </button>
-            <button>
-              <i className="far fa-check-circle" />
-            </button>
-          </span>
-        </li>
-      </ul> */}
+      {jobs.map((job) => {
+        return (
+          <li key={job.id}>
+            {job.jobs}
+            <span className="buttons">
+              <button>
+                <i
+                  className="far fa-trash-alt"
+                  onClick={() => delJob(job.id)}
+                />
+              </button>
+              <button>
+                <i
+                  className="far fa-check-circle"
+                  onClick={() => handleComplete(job.id)}
+                />
+              </button>
+            </span>
+          </li>
+        );
+      })}
     </>
   );
 }

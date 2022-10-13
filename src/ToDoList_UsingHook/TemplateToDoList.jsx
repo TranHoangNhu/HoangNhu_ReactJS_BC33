@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../assets/Sass/main.scss";
+import ToDoList from "./ToDoList";
 import CompleteList from "./CompleteList";
-// import ToDoList from "./ToDoList";
 
 export default function TemplateToDoList() {
   const [job, setJob] = useState("");
@@ -18,22 +18,23 @@ export default function TemplateToDoList() {
   const delJob = (idClick) => {
     const newJobs = jobs.filter((job) => job.id !== idClick);
     setJobs(newJobs);
+    console.log("deleted");
     const jsonJobs = JSON.stringify(newJobs);
     localStorage.setItem("jobs", jsonJobs);
   };
 
   const delCompleteJob = (idClick) => {
-    const newJobs = jobs.filter((job) => job.id !== idClick);
-    setJobs(newJobs);
+    const newJobs = completeJobs.filter((job) => job.id !== idClick);
+    setCompleteJobs(newJobs);
     const jsonJobs = JSON.stringify(newJobs);
     localStorage.setItem("completeJobs", jsonJobs);
   };
 
   const handleComplete = (idClick) => {
-    const newComplete = completeJobs.find((job) => job.id === idClick);
-    console.log(newComplete);
+    const completeJobs = jobs.find((job) => job.id === idClick);
     setCompleteJobs((prev) => {
-      const newJobs = [...prev, newComplete];
+      const newJobs = [completeJobs, ...prev];
+      delJob(idClick);
       const jsonJobs = JSON.stringify(newJobs);
       localStorage.setItem("completeJobs", jsonJobs);
       return newJobs;
@@ -102,48 +103,18 @@ export default function TemplateToDoList() {
             <div className="card__todo">
               {/* Uncompleted tasks */}
               <ul className="todo" id="todo">
-                {jobs.map((job) => {
-                  return (
-                    <li key={job.id}>
-                      {job.jobs}
-                      <span className="buttons">
-                        <button>
-                          <i
-                            className="far fa-trash-alt"
-                            onClick={() => delJob(job.id)}
-                          />
-                        </button>
-                        <button>
-                          <i className="far fa-check-circle" />
-                        </button>
-                      </span>
-                    </li>
-                  );
-                })}
+                <ToDoList
+                  jobs={jobs}
+                  delJob={delJob}
+                  handleComplete={handleComplete}
+                />
               </ul>
               {/* Completed tasks */}
               <ul className="todo" id="completed">
-                {completeJobs.map((job) => {
-                  return (
-                    <li key={job.id}>
-                      {job.jobs}
-                      <span className="buttons">
-                        <button>
-                          <i
-                            className="far fa-trash-alt"
-                            onClick={() => delCompleteJob(job.id)}
-                          />
-                        </button>
-                        <button className="complete">
-                          <i
-                            className="far fa-check-circle"
-                            onClick={() => handleComplete(job.id)}
-                          />
-                        </button>
-                      </span>
-                    </li>
-                  );
-                })}
+                <CompleteList
+                  completeJobs={completeJobs}
+                  delCompleteJob={delCompleteJob}
+                />
               </ul>
             </div>
           </div>
