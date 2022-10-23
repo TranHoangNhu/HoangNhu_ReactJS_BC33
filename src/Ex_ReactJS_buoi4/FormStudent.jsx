@@ -1,10 +1,15 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { layThongTinSVAction } from "../redux/Reducer/LayThongTinSVReducer";
+import useLocalStorage from "../Hooks/useLocalStorage/useLocalStorage";
 
 export default function FormCRUD() {
   const { thongTinSV } = useSelector((state) => state.LayThongTinSVReducer);
-  console.log('Dữ liệu lấy từ store redux',thongTinSV);
+  const [infoLocal, setInfoLocal] = useLocalStorage("studentForm", thongTinSV);
+
+  useEffect(() => {
+    console.log("Dữ liệu lấy từ store redux", thongTinSV);
+  }, [thongTinSV]);
   /*Phần lấy dữ liệu cho input
     -khi state(value input) thay đổi thì component luôn được re-render lại.
     -useState được tạo nên cũng 1 phần áp dụng Rest trong javaScript thuần. {...arguments}.
@@ -15,13 +20,16 @@ export default function FormCRUD() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
-  const newThongTin = {
-    idStudent,
-    name,
-    phone,
-    email,
-  };
-  console.log('state sau khi re-render component',newThongTin);
+  const newThongTin = [
+    ...infoLocal,
+    {
+      idStudent,
+      name,
+      phone,
+      email,
+    },
+  ];
+  console.log("state sau khi re-render component", newThongTin);
 
   const dispatch = useDispatch();
 
@@ -29,6 +37,7 @@ export default function FormCRUD() {
     e.preventDefault();
     const action = layThongTinSVAction(newThongTin);
     dispatch(action);
+    setInfoLocal(newThongTin);
   };
 
   return (
