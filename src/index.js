@@ -1,11 +1,9 @@
 import React from "react";
-import ReactDOM, { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import rootReducer from "./redux/rootReducer.jsx";
+import ReactDOM from "react-dom/client";
 import App from "./Components/App.jsx";
-
-const store = createStore(rootReducer);
+//redux
+import { Provider } from "react-redux";
+import { store } from "./redux/ConfigStore.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
