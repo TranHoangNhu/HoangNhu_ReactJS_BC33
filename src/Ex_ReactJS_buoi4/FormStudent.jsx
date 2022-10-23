@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { layThongTinSVAction } from "../redux/Reducer/LayThongTinSVReducer";
 
 export default function FormCRUD() {
   const { thongTinSV } = useSelector((state) => state.LayThongTinSVReducer);
-  console.log(thongTinSV);
+  console.log('Dữ liệu lấy từ store redux',thongTinSV);
+  /*Phần lấy dữ liệu cho input
+    -khi state(value input) thay đổi thì component luôn được re-render lại.
+    -useState được tạo nên cũng 1 phần áp dụng Rest trong javaScript thuần. {...arguments}.
+    -
+  */
   const [idStudent, setIdStudent] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -16,7 +21,7 @@ export default function FormCRUD() {
     phone,
     email,
   };
-  console.log(newThongTin);
+  console.log('state sau khi re-render component',newThongTin);
 
   const dispatch = useDispatch();
 
