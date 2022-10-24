@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  thongTinSV: [],
+  thongTinSV: JSON.parse(localStorage.getItem("studentForm")) || [],
 };
 
 const LayThongTinSVReducer = createSlice({
@@ -12,9 +12,13 @@ const LayThongTinSVReducer = createSlice({
       let newThongTin = action.payload;
       state.thongTinSV.push(newThongTin);
     },
+    traDuLieuSVAction: (state) => {
+      return state.thongTinSV;
+    },
   },
 });
 
-export const { layThongTinSVAction } = LayThongTinSVReducer.actions;
+export const { layThongTinSVAction, traDuLieuSVAction } =
+  LayThongTinSVReducer.actions;
 
 export default LayThongTinSVReducer.reducer;
