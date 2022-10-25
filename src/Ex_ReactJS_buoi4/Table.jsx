@@ -1,38 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-export default function Table() {
-  const { thongTinSV } = useSelector((state) => state.LayThongTinSVReducer);
-  let renderForm = (prevState) => {
-    return prevState.map((prod, index) => { 
-      return (
-        <tr key={index}>
-          <td>{prod.idStudent}</td>
-          <td>{prod.name}</td>
-          <td>{prod.phone}</td>
-          <td>{prod.email}</td>
-          {/* <td>
-              <button
-                className="btn btn-danger"
-                onClick={() => {
-                  delProduct(prod.id);
-                }}
-              >
-                Xoá
-              </button>
-              <button
-                className="btn btn-primary mx-2"
-                onClick={() => {
-                  editProduct(prod);
-                }}
-              >
-                Sửa
-              </button>
-            </td> */}
-        </tr>
-      );
-    });
-  };
+export default function Table({ handleDel,handleEdit }) {
+  const { thongTinSV } = useSelector((state) => state.sVReducer);
 
   return (
     <>
@@ -43,10 +13,40 @@ export default function Table() {
               <th>Mã Số</th>
               <th>Họ Tên</th>
               <th>Số điện thoại</th>
-              <th>Email </th>
+              <th>Email</th>
+              <th></th>
             </tr>
           </thead>
-          <tbody>{renderForm(thongTinSV)}</tbody>
+          <tbody>
+            {thongTinSV.map((sv, index) => {
+              return (
+                <tr key={index}>
+                  <td>{sv.idStudent}</td>
+                  <td>{sv.phone}</td>
+                  <td>{sv.name}</td>
+                  <td>{sv.email}</td>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => {
+                        handleDel(sv.idStudent);
+                      }}
+                    >
+                      Xoá
+                    </button>
+                    <button
+                      className="btn btn-primary mx-2"
+                      onClick={() => {
+                        handleEdit(sv);
+                      }}
+                    >
+                      Sửa
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </>

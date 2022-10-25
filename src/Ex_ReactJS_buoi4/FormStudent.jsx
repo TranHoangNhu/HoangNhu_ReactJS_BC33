@@ -1,18 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export default function FormCRUD({
-  setIdStudent,
-  setName,
-  setPhone,
-  setEmail,
-  handleSubmit,
-}) {
+export default function FormCRUD({ handleSubmit,handleChange }) {
+  const { editSV } = useSelector((state) => state.sVReducer);
   return (
     <>
       <div className="container">
         <form onSubmit={handleSubmit}>
           <div className="card">
-            <div className="card-header bg-success text-white">
+            <div className="card-header bg-success text-white"> 
               <h3>Thông tin sinh viên</h3>
             </div>
             <div className="card-body">
@@ -22,18 +18,20 @@ export default function FormCRUD({
                     <p className="mb-0">Mã SV</p>
                     <input
                       className="form-control"
-                      id="maSV"
+                      value={editSV.idStudent}
+                      id="idStudent"
                       name="maSV"
-                      onChange={(e) => setIdStudent(e.target.value)}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="form-group">
                     <p className="mb-0">Số điện thoại</p>
                     <input
                       className="form-control"
-                      id="soDienThoai"
+                      value={editSV.phone}
+                      id="phone"
                       name="soDienThoai"
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -42,18 +40,20 @@ export default function FormCRUD({
                     <p className="mb-0">Họ tên</p>
                     <input
                       className="form-control"
-                      id="hoTen"
+                      value={editSV.name}
+                      id="name"
                       name="hoTen"
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="form-group">
                     <p className="mb-0">Email</p>
                     <input
                       className="form-control"
+                      value={editSV.email}
                       id="email"
                       name="email"
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>

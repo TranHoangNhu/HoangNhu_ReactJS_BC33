@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  layThongTinSVAction,
-  traDuLieuSVAction,
+  addInfo,
+  delInfo,
+  editInfo,
 } from "../redux/Reducer/LayThongTinSVReducer";
 import useLocalStorage from "../Hooks/useLocalStorage/useLocalStorage";
 import FormStudent from "./FormStudent";
 import Table from "./Table";
 
 export default function ExFormStudent() {
-  const { thongTinSV } = useSelector((state) => state.LayThongTinSVReducer);
+  const { thongTinSV } = useSelector((state) => state.sVReducer);
   const [infoLocal, setInfoLocal] = useLocalStorage("studentForm", thongTinSV);
+
   useEffect(() => {
     console.log("Dữ liệu lấy từ store redux", thongTinSV);
   }, [thongTinSV]);
@@ -19,30 +21,34 @@ export default function ExFormStudent() {
     -useState được tạo nên cũng 1 phần áp dụng Rest trong javaScript thuần. {...arguments}.
     -
   */
-  const [idStudent, setIdStudent] = useState("");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-
-  const newThongTin = [
-    ...infoLocal,
-    {
-      idStudent,
-      name,
-      phone,
-      email,
-    },
-  ];
-  console.log("state sau khi re-render component", newThongTin);
+  const [newInfo, setNewInfo] = useState({
+    idStudent: "",
+    phone: "",
+    name: "",
+    email: "",
+  });
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setNewInfo({
+      ...newInfo,
+      [id]: value,
+    });
+  };
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const action = layThongTinSVAction(newThongTin);
-    dispatch(action);
-    console.log('reducer trả dữ liệu: ',traDuLieuSVAction());
-    setInfoLocal(newThongTin);
+  const handleSubmit = () => {
+    const newInfoSV = [...infoLocal, { ...newInfo }];
+    dispatch(addInfo(newInfoSV));
+    setInfoLocal(newInfoSV);
+  };
+
+  const handleDel = (idClick) => {
+    dispatch(delInfo(idClick));
+  };
+
+  const handleEdit = (idClick) => {
+    dispatch(editInfo(idClick));
   };
 
   return (
@@ -56,14 +62,8 @@ export default function ExFormStudent() {
       <h1 className="text-center p-4 text-white fw-bold mt-4">
         QUẢN LÝ SINH VIÊN
       </h1>
-      <FormStudent
-        setIdStudent={setIdStudent}
-        setName={setName}
-        setPhone={setPhone}
-        setEmail={setEmail}
-        handleSubmit={handleSubmit}
-      />
-      <Table />
+      <FormStudent handleSubmit={handleSubmit} handleChange={handleChange} />
+      <Table handleDel={handleDel} handleEdit={handleEdit} />
     </>
   );
 }

@@ -1,8 +1,8 @@
-import {configureStore} from '@reduxjs/toolkit' 
-import LayThongTinSVReducer from './Reducer/LayThongTinSVReducer'
+import { configureStore } from "@reduxjs/toolkit";
+import sVReducer from "./Reducer/LayThongTinSVReducer";
 
 export const store = configureStore({
-    reducer: {
-        LayThongTinSVReducer: LayThongTinSVReducer
-    }
-})
+  reducer: {
+    sVReducer,
+  },
+});
