@@ -4,6 +4,7 @@ import {
   addInfo,
   delInfo,
   editInfo,
+  updateInfo,
 } from "../redux/Reducer/LayThongTinSVReducer";
 import useLocalStorage from "../Hooks/useLocalStorage/useLocalStorage";
 import FormStudent from "./FormStudent";
@@ -51,6 +52,10 @@ export default function ExFormStudent() {
     dispatch(editInfo(idClick));
   };
 
+  const handleUpdate = () => {
+    dispatch(updateInfo());
+  };
+
   return (
     <>
       <style
@@ -62,7 +67,12 @@ export default function ExFormStudent() {
       <h1 className="text-center p-4 text-white fw-bold mt-4">
         QUẢN LÝ SINH VIÊN
       </h1>
-      <FormStudent handleSubmit={handleSubmit} handleChange={handleChange} />
+      <FormStudent
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleUpdate={handleUpdate}
+        newInfo={newInfo}
+      />
       <Table handleDel={handleDel} handleEdit={handleEdit} />
     </>
   );

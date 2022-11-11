@@ -1,9 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-export default function Table({ handleDel,handleEdit }) {
+export default function Table({ handleDel, handleEdit }) {
   const { thongTinSV } = useSelector((state) => state.sVReducer);
-
   return (
     <>
       <div className="container mt-5">

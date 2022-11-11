@@ -31,7 +31,25 @@
         color: $c-hover;
     }
 }
-
+@mixin flex ($dir: row, $wrap: wrap, $ai: center, $jc: center, $ac: center){
+	display: flex;
+	flex-direction: $dir;
+	flex-wrap: $wrap;
+	align-items: $ai;
+	justify-content: $jc;
+	align-content: $ac;
+  }
+  @mixin imagen ($url: '', $size: cover, $posicion: center, $repeat: no-repeat, $parallax: false) {
+	@if  $url != '' {
+	  background-image: url($url);
+	}
+	background-size: $size;
+	background-position: $posicion;
+	background-repeat: $repeat;
+	@if $parallax == true {
+	  background-attachment: fixed;
+	}
+  }
 
 /* button gradient library */
 .button-78 {

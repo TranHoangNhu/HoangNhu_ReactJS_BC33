@@ -45,31 +45,31 @@ export default class CartMoDal extends Component {
                 ) : (
                   cartStore.map((prod) => {
                     return (
-                      <div className="card rounded-3 m-3" key={prod.maSP}>
+                      <div className="card rounded-3 m-3" key={prod.id}>
                         <div className="card-body p-4">
                           <div className="row d-flex justify-content-between align-items-center">
                             <div className="col-md-2 col-lg-2 col-xl-2">
                               <img
-                                src={prod.hinhAnh}
+                                src={prod.srcImg}
                                 className="img-fluid rounded-3"
                                 alt={prod.name}
                               />
                             </div>
                             <div className="col-md-3 col-lg-3 col-xl-3">
                               <p className="lead fw-bold mb-2 fs-4 text-center">
-                                {prod.tenSP}
+                                {prod.name}
                               </p>
                               <p className="text-center">
-                                <span className="text-muted">Ram: </span>
-                                <u>{prod.ram}</u>{" "}
-                                <span className="text-muted">Rom: </span>
-                                <u>{prod.rom}</u>
+                                <span className="text-muted">Mô tả: </span>
+                                <u>{prod.desc}</u>{" "}
+                                <span className="text-muted">mã màu: </span>
+                                <u>{prod.bgText}</u>
                               </p>
                             </div>
                             <div className="col-md-3 col-lg-3 col-xl-2 d-flex justify-content-center">
                               <button
                                 className="btn btn-link px-2"
-                                onClick={() => stepUpAndDown(prod.maSP, false)}
+                                onClick={() => stepUpAndDown(prod.id, false)}
                               >
                                 <i className="fs-4 fas fa-minus" />
                               </button>
@@ -77,18 +77,18 @@ export default class CartMoDal extends Component {
                                 className="fs-3 text-center px-4"
                                 style={{ lineHeight: "130%" }}
                               >
-                                {prod.soLuong}
+                                {prod.quantity}
                               </span>
                               <button
                                 className="btn btn-link px-2"
-                                onClick={() => stepUpAndDown(prod.maSP, true)}
+                                onClick={() => stepUpAndDown(prod.id, true)}
                               >
                                 <i className="fs-4 fas fa-plus" />
                               </button>
                             </div>
                             <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                               <h5 className="mb-0 fw-bold">
-                                {(prod.giaBan * prod.soLuong).toLocaleString(
+                                {(prod.currentPrice * prod.quantity).toLocaleString(
                                   "vi",
                                   {
                                     style: "currency",
@@ -102,7 +102,7 @@ export default class CartMoDal extends Component {
                                 href="#!"
                                 className="text-danger"
                                 onClick={() => {
-                                  delProdInCart(prod.maSP);
+                                  delProdInCart(prod.id);
                                 }}
                               >
                                 <i className="fas fa-trash fa-lg" />
@@ -121,13 +121,14 @@ export default class CartMoDal extends Component {
                   {this.props.cartStore
                     .reduce((tongTien, prodInCart) => {
                       return (tongTien +=
-                        prodInCart.soLuong * prodInCart.giaBan);
+                        prodInCart.quantity * prodInCart.currentPrice);
                     }, 0)
                     .toLocaleString("vi", {
                       style: "currency",
                       currency: "VND",
                     })}
                 </h5>
+                <a href="https://loyaltycard.zintech.vn/" className="btn btn-success">Thanh toán</a>
                 <button
                   type="button"
                   className="btn btn-primary"

@@ -20,7 +20,7 @@ export default class DDA extends Component {
             <Link className="button-78" role="button" to="baitap2">
               BÀI TẬP 2 - GlassVirtual
             </Link>
-            <Link className="button-78" role="button" to="baitap3">
+            <Link className="button-78" role="button" to="zintech">
               BÀI TẬP 3 - CartPhone
             </Link>
             <Link className="button-78" role="button" to="baitap4">
@@ -28,12 +28,15 @@ export default class DDA extends Component {
             </Link>
           </div>
           <div className="container">
-            <Link className="button-78" role="button" to="todolist">
+            {/* <Link className="button-78" role="button" to="todolist">
               TodoList ReactHook
+            </Link> */}
+            <Link className="button-78" role="button" to="baitap5">
+              Booking Movie
             </Link>
           </div>
         </div>
-      </div>
+      </div> 
     );
   }
 }

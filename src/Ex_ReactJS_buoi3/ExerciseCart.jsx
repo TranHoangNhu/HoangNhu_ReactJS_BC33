@@ -13,19 +13,19 @@ export default class ExerciseCart extends Component {
 
   addToCart = (prodClick) => {
     let prodInCart = {
-      maSP: prodClick.maSP,
-      tenSP: prodClick.tenSP,
-      giaBan: prodClick.giaBan,
-      hinhAnh: prodClick.hinhAnh,
-      ram: prodClick.ram,
-      rom: prodClick.rom,
-      soLuong: 1,
+      id: prodClick.id,
+      name: prodClick.name,
+      currentPrice: prodClick.currentPrice,
+      srcImg: prodClick.srcImg,
+      desc: prodClick.desc,
+      bgText: prodClick.bgText,
+      quantity: 1,
     };
     var cartUpdate = [...this.state.cartStore];
-    let index = cartUpdate.findIndex((prod) => prod.maSP === prodInCart.maSP);
+    let index = cartUpdate.findIndex((prod) => prod.id === prodInCart.id);
     // console.log(cartUpdate);
     if (index !== -1) {
-      cartUpdate[index].soLuong += 1;
+      cartUpdate[index].quantity += 1;
     } else {
       cartUpdate.push(prodInCart);
     }
@@ -37,11 +37,11 @@ export default class ExerciseCart extends Component {
 
   delProdInCart = (prodClick) => {
     // var cartUpdate = [...this.state.cartStore];
-    // let index = cartUpdate.findIndex(prod=>prod.maSP === prodClick);
+    // let index = cartUpdate.findIndex(prod=>prod.id === prodClick);
     // if(index!==-1){
     //   cartUpdate.splice(index,1);
     var cartUpdate = this.state.cartStore.filter(
-      (prod) => prod.maSP !== prodClick
+      (prod) => prod.id !== prodClick
     );
     this.setState({
       cartStore: cartUpdate,
@@ -51,12 +51,12 @@ export default class ExerciseCart extends Component {
 
   stepUpAndDown = (prodClick, upOrDown) => {
     var cartUpdate = [...this.state.cartStore];
-    let index = cartUpdate.findIndex((prod) => prod.maSP === prodClick);
+    let index = cartUpdate.findIndex((prod) => prod.id === prodClick);
     if (upOrDown) {
-      cartUpdate[index].soLuong += 1;
+      cartUpdate[index].quantity += 1;
     } else {
-      if (cartUpdate[index].soLuong > 1) {
-        cartUpdate[index].soLuong -= 1;
+      if (cartUpdate[index].quantity > 1) {
+        cartUpdate[index].quantity -= 1;
       }
     }
     this.setState({
@@ -65,8 +65,8 @@ export default class ExerciseCart extends Component {
   };
 
   render() {
-    let tongSoLuong = this.state.cartStore.reduce((total, prodInCart) => {
-      return (total += prodInCart.soLuong);
+    let tongquantity = this.state.cartStore.reduce((total, prodInCart) => {
+      return (total += prodInCart.quantity);
     }, 0);
 
     return (
@@ -85,9 +85,9 @@ export default class ExerciseCart extends Component {
             data-bs-toggle="modal"
             data-bs-target="#modalId"
           >
-            <i className="fs-1 p-2 fa-solid fa-cart-arrow-down text-primary"></i>
-            <span className="cd-cart-count bg-success text-white fw-bold fs-5">
-              {tongSoLuong}
+            <i className="fs-1 p-2 fa-solid fa-cart-arrow-down text-white"></i>
+            <span className="cd-cart-count bg-dark text-white fw-bold fs-5">
+              {tongquantity}
             </span>
           </button>
         </div>

@@ -1,0 +1,690 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #fff;
+}
+
+/* button gradient library */
+.button-78 {
+  align-items: center;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+.button-78:before {
+  border-radius: 80px;
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+.button-78:after {
+  border-radius: 80px;
+  background-color: initial;
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+.button-78:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%);
+}
+.button-78:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+.button-78:active:not(:disabled) {
+  color: #ccc;
+}
+.button-78:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+}
+.button-78:active:not(:disabled):after {
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+.button-78:disabled {
+  cursor: default;
+  opacity: 0.24;
+}
+
+@media (min-width: 768px) {
+  .button-78 {
+    padding: 19px 32px;
+  }
+}
+/* button gradient library */
+.button-78 {
+  align-items: center;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+.button-78:before {
+  border-radius: 80px;
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+.button-78:after {
+  border-radius: 80px;
+  background-color: initial;
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+.button-78:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%);
+}
+.button-78:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+.button-78:active:not(:disabled) {
+  color: #ccc;
+}
+.button-78:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+}
+.button-78:active:not(:disabled):after {
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+.button-78:disabled {
+  cursor: default;
+  opacity: 0.24;
+}
+
+@media (min-width: 768px) {
+  .button-78 {
+    padding: 19px 32px;
+  }
+}
+.default_body {
+  background: radial-gradient(circle at 10% 20%, rgb(69, 86, 102) 0%, rgb(34, 34, 34) 90%);
+  overflow: hidden;
+}
+.default_body .container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.default_body .react {
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+  -webkit-animation: anim__rotate 8.2s linear infinite;
+          animation: anim__rotate 8.2s linear infinite;
+}
+.default_body .react__spoke {
+  position: absolute;
+  border: 0.45rem #55DBF8 solid;
+  height: 4rem;
+  width: 11rem;
+  border-radius: 250%;
+}
+.default_body .react__spoke--1 {
+  transform: rotate(60deg);
+}
+.default_body .react__spoke--2 {
+  transform: rotate(-60deg);
+}
+.default_body .react__spoke--3 {
+  height: 2.2rem;
+  width: 2.2rem;
+  background-color: #55DBF8;
+  border-radius: 50%;
+  position: absolute;
+}
+@-webkit-keyframes anim__rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes anim__rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.GlassVirtual {
+  background: url(../img/glassesImage/background.jpg);
+  background-size: cover;
+  height: 100%;
+}
+.GlassVirtual h1 {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ecdd00;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.GlassVirtual .GlassList {
+  background-color: #fff;
+}
+.GlassVirtual .left-image img {
+  width: 100%;
+}
+.GlassVirtual .right-image {
+  position: relative;
+}
+.GlassVirtual .right-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.GlassVirtual .right-image .info-glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.GlassVirtual .right-image .info-glass .glass-demo img {
+  position: absolute;
+  width: 50%;
+  top: 25%;
+  left: 25%;
+}
+.GlassVirtual .right-image .info-glass .info {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.GlassVirtual .right-image .info-glass .info a {
+  background-color: #f00;
+  color: #f1f1f1;
+  padding: 7px 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.GlassVirtual .right-image .info-glass .info span {
+  color: #00ff00;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.GlassVirtual .GlassList img {
+  cursor: pointer;
+}
+
+.cart-count {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+.cart-count .cd-cart-count {
+  position: relative;
+  top: -30px;
+  right: 20px;
+  padding: 5px 9px;
+  border-radius: 50px;
+}
+
+.toDoList_ReactHook {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: #FEE9F0;
+}
+.toDoList_ReactHook h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.toDoList_ReactHook ul {
+  padding-left: 0 !important;
+}
+.toDoList_ReactHook .card {
+  margin: 50px auto;
+  background-color: #f5f8f9;
+  width: 350px;
+  box-shadow: 0 0 6px grey;
+  overflow: hidden;
+  line-height: 2rem;
+  letter-spacing: 1px;
+}
+.toDoList_ReactHook .card__header {
+  height: 215px;
+  overflow: hidden;
+  position: relative;
+}
+.toDoList_ReactHook .card__header img {
+  width: 100%;
+}
+.toDoList_ReactHook .card__header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(71, 32, 84, 0.2);
+}
+.toDoList_ReactHook .card__body {
+  position: relative;
+}
+.toDoList_ReactHook .card__body::before {
+  content: "";
+  position: absolute;
+  top: -35px;
+  left: -50px;
+  background-color: #f5f8f9;
+  height: 100px;
+  width: 120%;
+  display: block;
+  transform: rotate(10deg);
+}
+.toDoList_ReactHook .card__content {
+  position: relative;
+  padding: 0 20px;
+}
+.toDoList_ReactHook .card__title p {
+  font-size: 0.8rem;
+}
+.toDoList_ReactHook .filter-btn {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transition: all 0.4s ease-in-out 0s;
+}
+.toDoList_ReactHook .filter-btn span i {
+  width: 40px;
+  height: 40px;
+  background: #FA396B;
+  display: block;
+  position: absolute;
+  right: 25px;
+  top: -30px;
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  border-radius: 50%;
+  font-size: 1rem;
+  z-index: 999;
+}
+.toDoList_ReactHook .filter-btn a {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  right: 25px;
+  display: block;
+  top: -30px;
+  color: #fff;
+  z-index: 99;
+  font-size: 1.2rem;
+  transition: all 0.4s cubic-bezier(0.68, 1, 0.265, 1);
+}
+.toDoList_ReactHook .filter-btn:after {
+  height: 150px;
+  width: 150px;
+  content: "";
+  background-color: #FA396B;
+  position: absolute;
+  top: -86px;
+  right: -35px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+.toDoList_ReactHook .filter-btn .fa-times {
+  display: none;
+}
+.toDoList_ReactHook .filter-btn .fa-filter {
+  display: block;
+}
+.toDoList_ReactHook span.toggle-btn:hover {
+  cursor: pointer;
+}
+.toDoList_ReactHook .filter-btn.open span.toggle-btn i {
+  background-color: #DE3963;
+}
+.toDoList_ReactHook .filter-btn.open .fa-times {
+  display: block;
+}
+.toDoList_ReactHook .filter-btn.open .fa-filter {
+  display: none;
+}
+.toDoList_ReactHook .filter-btn.open a:nth-child(1) {
+  transform: translate(9px, -48px);
+}
+.toDoList_ReactHook .filter-btn.open a:nth-child(2) {
+  transform: translate(-42px, -26px);
+}
+.toDoList_ReactHook .filter-btn.open a:nth-child(3) {
+  transform: translate(-39px, 29px);
+}
+.toDoList_ReactHook .filter-btn.open a:nth-child(4) {
+  transform: translate(6px, 52px);
+}
+.toDoList_ReactHook .open:after {
+  transform: scale(1);
+}
+.toDoList_ReactHook .card__add {
+  display: flex;
+  position: relative;
+  margin-top: 5px;
+}
+.toDoList_ReactHook .card__add input {
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-indent: 18px;
+  background: rgba(222, 57, 99, 0.6);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+}
+.toDoList_ReactHook .card__add input::-moz-placeholder {
+  color: #fff;
+}
+.toDoList_ReactHook .card__add input:-ms-input-placeholder {
+  color: #fff;
+}
+.toDoList_ReactHook .card__add input::placeholder {
+  color: #fff;
+}
+.toDoList_ReactHook .card__add button {
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 0 0 0 2px rgb(222, 57, 99);
+  cursor: pointer;
+  outline: none;
+}
+.toDoList_ReactHook .card__add i {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  background: #fff;
+  line-height: 40px;
+  color: #DE3963;
+}
+.toDoList_ReactHook ul.todo {
+  list-style: none;
+}
+.toDoList_ReactHook ul.todo li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 30px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #444;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px rgba(44, 62, 80, 0.3);
+  margin: 0 0 10px 0;
+  padding: 0 10px;
+  word-break: break-word;
+}
+.toDoList_ReactHook ul.todo li .buttons button {
+  background: none;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  padding: 5px 0 5px 5px;
+  font-size: 1rem;
+}
+.toDoList_ReactHook ul.todo li .buttons .remove {
+  color: #aaa;
+}
+.toDoList_ReactHook ul.todo li .buttons .remove:hover {
+  color: #FA396B;
+}
+.toDoList_ReactHook ul.todo li .buttons .complete {
+  color: #aaa;
+}
+.toDoList_ReactHook ul.todo li .buttons .complete:hover {
+  color: #25b99a;
+}
+.toDoList_ReactHook ul.todo#todo {
+  padding-top: 30px;
+}
+.toDoList_ReactHook ul.todo#todo:empty:after {
+  content: "You have nothing to-do!";
+  margin: 15px 0 0 0;
+}
+.toDoList_ReactHook ul.todo#todo:after {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+}
+.toDoList_ReactHook ul.todo#todo li .buttons .complete .fas {
+  display: none;
+}
+.toDoList_ReactHook ul.todo#todo li .buttons .complete .far {
+  display: block;
+}
+.toDoList_ReactHook ul.todo#completed {
+  position: relative;
+  padding: 30px 0;
+}
+.toDoList_ReactHook ul.todo#completed:before {
+  content: "";
+  width: 150px;
+  height: 1px;
+  background: #d8e5e0;
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  margin: 0 0 0 -75px;
+}
+.toDoList_ReactHook ul.todo#completed:empty:after {
+  content: "You have yet to complete any tasks.";
+}
+.toDoList_ReactHook ul.todo#completed:after {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+}
+.toDoList_ReactHook ul.todo#completed li .buttons .complete .fas {
+  display: block;
+  color: #25b99a;
+}
+.toDoList_ReactHook ul.todo#completed li .buttons .complete .far {
+  display: none;
+}
+.toDoList_ReactHook ul.todo#completed span {
+  color: #25b99a;
+}
+
+@font-face {
+  .booking_movie {
+    font-family: "fontGame";
+    src: url("../font/Pony.ttf");
+  }
+}
+.booking_movie .bookingMovie {
+  font-family: "fontGame";
+}
+.booking_movie .ghe {
+  border: 3px solid orange;
+  width: 45px;
+  height: 35px;
+  font-size: 12px;
+  margin-left: 2%;
+  margin-bottom: 1%;
+  border-radius: 5px;
+}
+.booking_movie .rowNumber {
+  /* font-size: 25px; */
+  width: 45px;
+  height: 35px;
+  background: none;
+  border: none;
+  margin-left: 2%;
+  margin-bottom: 1%;
+  font-size: 30px;
+  color: yellow;
+}
+.booking_movie .firstChar {
+  color: yellow;
+  font-size: 35px;
+  margin-right: 15px;
+}
+.booking_movie .screen {
+  border-bottom: 50px solid rgb(255, 159, 95);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  height: 100;
+  width: 80%;
+  filter: drop-shadow(4px 30px 20px rgba(255, 255, 255, 0.5));
+  font-size: 25px;
+  color: #fff;
+}
+.booking_movie .gheDuocChon {
+  border: 3px solid orange;
+  background: orange;
+  color: #000;
+  cursor: no-drop !important;
+  border-radius: 5px;
+  width: 45px;
+  height: 35px;
+}
+.booking_movie .gheDangChon {
+  background: rgb(109, 238, 109);
+  border: 3px solid rgb(109, 238, 109);
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 45px;
+  height: 35px;
+}

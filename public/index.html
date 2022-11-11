@@ -22,7 +22,8 @@
 
 <body>
   <div id="root"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     $(function () {
@@ -33,6 +34,15 @@
         $(".filter-btn").removeClass("open");
       });
     });
+  </script>
+  <!-- Script Item Ecard -->
+  <script>
+    $('.card .aFavs').click(function () {
+      $(this).parents('.card').toggleClass('esFav');
+    })
+    $('.card .alCarrito').click(function () {
+      $(this).parents('.card').toggleClass('enCarrito');
+    })
   </script>
 </body>
 

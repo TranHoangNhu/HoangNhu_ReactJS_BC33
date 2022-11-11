@@ -22,13 +22,26 @@ const sVReducer = createSlice({
       localStorage.setItem("studentForm", newInfo);
     },
     editInfo: (state, action) => {
+      console.log(action)
       const idClick = action.payload;
       state.editSV = idClick;
       console.log(state.editSV);
     },
+    updateInfo: (state,action) => {
+      // const { idStudent, phone, name, email } = state.editSV;
+      // let svUpdate = state.thongTinSV.find((sv) => sv.idStudent === idStudent);
+      // console.log('log sau khi idClick', svUpdate)
+      // svUpdate.idStudent = idStudent;
+      // svUpdate.phone = phone;
+      // svUpdate.name = name;
+      // svUpdate.email = email;
+      // const newInfo = JSON.stringify(state.editSV);
+      // localStorage.setItem("studentForm", newInfo);
+      // console.log("Lưu localStorage thành công");
+    },
   },
 });
 
-export const { addInfo, delInfo, editInfo } = sVReducer.actions;
+export const { addInfo, delInfo, editInfo, updateInfo } = sVReducer.actions;
 
 export default sVReducer.reducer;

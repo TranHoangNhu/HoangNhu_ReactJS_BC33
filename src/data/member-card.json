@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "ECARD-COPPER-MEMBER",
+    "bgText": "#ac6d00",
+    "startingPrice": 200000,
+    "currentPrice": 150000,
+    "srcImg": "/img/card_member/copper-member.png",
+    "desc": "Tính năng và quyền lợi: sẽ công bố sau khi dự án kết thúc.",
+    "quantity": 1000
+  },
+  {
+    "id": 2,
+    "name": "ECARD-SILVER-MEMBER",
+    "bgText": "#a6a6a6",
+    "startingPrice": 250000,
+    "currentPrice": 200000,
+    "srcImg": "/img/card_member/silver-member.png",
+    "desc": "Tính năng và quyền lợi: sẽ công bố sau khi dự án kết thúc.",
+    "quantity": 700
+  },
+  {
+    "id": 3,
+    "name": "ECARD-GOLD-MEMBER",
+    "bgText": "#f5d003",
+    "startingPrice": 300000,
+    "currentPrice": 250000,
+    "srcImg": "/img/card_member/gold-member.png",
+    "desc": "Tính năng và quyền lợi: sẽ công bố sau khi dự án kết thúc.",
+    "quantity": 500
+  },
+  {
+    "id": 4,
+    "name": "ECARD-DIAMOND-MEMBER",
+    "bgText": "#92c9c4",
+    "startingPrice": 350000,
+    "currentPrice": 300000,
+    "srcImg": "/img/card_member/diamond-member.png",
+    "desc": "Tính năng và quyền lợi: sẽ công bố sau khi dự án kết thúc.",
+    "quantity": 300
+  }
+]

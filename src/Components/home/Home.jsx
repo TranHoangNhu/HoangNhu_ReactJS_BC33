@@ -14,7 +14,7 @@ export default class home extends Component {
         <Route path="/" element={<DDA />} />
         <Route path="baitap1" element={<BaiTapThucHanhLayout />} />
         <Route path="baitap2" element={<GlassVirtual />} />
-        <Route path="baitap3" element={<ExerciseCart />} />
+        <Route path="zintech" element={<ExerciseCart />} />
         <Route path="baitap4" element={<ExFormStudent />} />
         <Route path="todolist" element={<TemplateToDoList />} />
       </Routes>

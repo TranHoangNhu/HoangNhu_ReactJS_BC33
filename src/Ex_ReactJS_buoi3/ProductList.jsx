@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import ProductItem from "./ProductItem";
-import data from "../data/phoneData.json";
+// import data from "../data/phoneData.json";
+import data from "../data/member-card.json";
 
 export default class ProductList extends Component {
   state = {
-    spChiTiet: {
-      maSP: 2,
-      tenSP: "Meizu 16Xs",
-      manHinh: "AMOLED, FHD+ 2232 x 1080 pixels",
-      heDieuHanh: "Android 9.0 (Pie); Flyme",
-      cameraTruoc: "20 MP",
-      cameraSau: "Chính 48 MP & Phụ 8 MP, 5 MP",
-      ram: "4 GB",
-      rom: "64 GB",
-      giaBan: 7600000,
-      hinhAnh: "/img/phoneProducts/meizuphone.jpg",
-      soLuong: 1,
+    cardInfo: {
+      id: 1,
+      name: "ECARD-COPPER-MEMBER",
+      bgText: "#ac6d00",
+      startingPrice: 200000,
+      currentPrice: 150000,
+      srcImg: "/img/card_member/copper-member.png",
+      desc: "Tính năng và quyền lợi: sẽ công bố <br> sau khi dự án kết thúc.",
+      quantity: 1000,
     },
   };
 
@@ -23,7 +21,7 @@ export default class ProductList extends Component {
     const { addToCart } = this.props;
     return data.map((prod, index) => {
       return (
-        <div className="col-12 col-md-4 p-4" key={index}>
+        <div className="col-12 col-md-3 p-4" key={index}>
           <ProductItem
             addToCart={addToCart}
             prod={prod}
@@ -35,31 +33,26 @@ export default class ProductList extends Component {
   };
 
   xemChiTiet = (prodClick) => {
-    console.log(prodClick.soLuong);
+    console.log(prodClick.quantity);
     //Thay đổi state = prod click
     this.setState({
-      spChiTiet: prodClick,
+      cardInfo: prodClick,
     });
   };
 
   render() {
-    let {
-      tenSP,
-      hinhAnh,
-      manHinh,
-      ram,
-      rom,
-      heDieuHanh,
-      cameraSau,
-      cameraTruoc,
-      soLuong,
-    } = this.state.spChiTiet;
+    let { name, bgText, startingPrice, currentPrice, srcImg, desc, quantity } =
+      this.state.cardInfo;
 
     return (
       <>
-        <div className="container">
-          <h3 className="text-center p-4 bg-light">Danh sách sản phẩm</h3>
-          <div className="row">{this.renderProduct()}</div>
+        <div className="container-fluid bg-dark">
+          <h3 className="text-center pt-5 fw-bold fs-2 text-warning">
+            WEBSITE DEMO BÁN MEMBER-ECARD
+          </h3>
+          <div className="container">
+            <div className="contenedorCards">{this.renderProduct()}</div>
+          </div>
           <div
             className="modal fade"
             id="modalInfo"
@@ -86,10 +79,10 @@ export default class ProductList extends Component {
                     <div className="row">
                       <div className="col-12 col-md-4">
                         <h3 className="fs-1 fw-bold text-center py-2">
-                          {tenSP}
+                          {name}
                         </h3>
                         <img
-                          src={hinhAnh}
+                          src={srcImg}
                           alt="..."
                           height={350}
                           className="w-100"
@@ -103,32 +96,32 @@ export default class ProductList extends Component {
                         <table className="table">
                           <thead>
                             <tr>
-                              <th>Màn hình</th>
-                              <td>{manHinh}</td>
+                              <th>Tên Sản phẩm</th>
+                              <td>{name}</td>
                             </tr>
                             <tr>
-                              <th>Hệ điều hành</th>
-                              <td>{heDieuHanh}</td>
+                              <th>Loại màu</th>
+                              <td>{bgText}</td>
                             </tr>
                             <tr>
-                              <th>Cam trước</th>
-                              <td>{cameraTruoc}</td>
+                              <th>Giá hiện tại</th>
+                              <td>{startingPrice}</td>
                             </tr>
                             <tr>
-                              <th>Cam sau</th>
-                              <td>{cameraSau}</td>
+                              <th>Giá khuyến mãi</th>
+                              <td>{currentPrice}</td>
                             </tr>
                             <tr>
-                              <th>Ram</th>
-                              <td>{ram}</td>
+                              <th>Khách hàng được gì:</th>
+                              <td>{desc}</td>
                             </tr>
                             <tr>
-                              <th>Rom</th>
-                              <td>{rom}</td>
+                              <th>Số lượng hàng còn lại</th>
+                              <td>{quantity}</td>
                             </tr>
                             <tr>
                               <th>Trạng thái</th>
-                              {soLuong > 0 ? (
+                              {quantity > 0 ? (
                                 <td className="fw-bold fs-4 text-success">
                                   Còn Hàng
                                 </td>
